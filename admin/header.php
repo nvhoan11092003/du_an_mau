@@ -14,12 +14,12 @@
         <!-- menu -->
         <nav class="">
             <ul class="flex ">
-                <li><a href="index.php" class="p-4 block hover:text-red-300">Trang Chủ</a></li>
-                <li><a href="index.php?act=adddm" class="p-4 block hover:text-red-300">Danh Mục </a></li>
-                <li><a href="index.php?act=addhh" class="p-4 block hover:text-red-300">Hàng Hóa</a></li>
-                <li><a href="index.php?act=addkh" class="p-4 block hover:text-red-300">Khách Hàng </a></li>
-                <li><a href="index.php?act=dsbl" class="p-4 block hover:text-red-300">Bình Luận</a></li>
-                <li><a href="index.php?act=thongke" class="p-4 block hover:text-red-300">Thống KÊ</a></li>
+                <li><a href="index.php" class="p-4 block hover:text-red-600 hover:underline">Trang Chủ</a></li>
+                <li><a href="index.php?act=adddm" class="p-4 block hover:text-red-600 hover:underline">Danh Mục</a></li>
+                <li><a href="index.php?act=addhh" class="p-4 block hover:text-red-600 hover:underline">Hàng Hóa</a></li>
+                <li><a href="index.php?act=addkh" class="p-4 block hover:text-red-600 hover:underline">Khách Hàng </a></li>
+                <li><a href="index.php?act=dsbl" class="p-4 block hover:text-red-600 hover:underline">Bình Luận</a></li>
+                <li><a href="index.php?act=thongke" class="p-4 block hover:text-red-600 hover:underline">Thống KÊ</a></li>
             </ul>
         </nav>
    

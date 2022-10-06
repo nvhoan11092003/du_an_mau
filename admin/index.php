@@ -2,7 +2,6 @@
 // kết nối với file connect
 require_once "../db.php";
 include "header.php";
-
 if (isset($_GET['act'])) {
     $act = $_GET['act'];
     switch ($act) {

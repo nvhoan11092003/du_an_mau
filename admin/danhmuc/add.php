@@ -6,19 +6,17 @@
         <input type="text" name="loai_hang">
         <!-- Nơi báo lỗi -->
         <?php
-
         // Kiểm Tra Tên Không được Để Trống
         if (isset($_POST["loai_hang"])) {
-            
+            $error = true;
             $ten_loai = $_POST["loai_hang"];
             if ($ten_loai == "") {
-                echo '<h1 class="text-red-600">Trường Này Không được để Trống</h1>';
-                
+                echo '<h1 class="text-red-600">Trường Này Không được để Trống</h1>'; 
+                $error = false;          
             }
         }
         if (isset($_POST["loai_hang"])) {
             $ten_loai = $_POST["loai_hang"];
-            $error =true;
             // kiểm tra tên loại hàng không được để trống
             $sql = "SELECT * FROM loai_hang";
             $ds_loai_hang = pdo_query($sql);    
@@ -30,7 +28,6 @@
             }
         }
         ?>
-
         <div class="">
             <input type="reset" value="Nhập Lại">
             <input type="submit" value="Thêm Mới" name="them_moi" class="hover:text-red-300 active:text-black">
@@ -45,7 +42,7 @@ if (isset($error)) {
         $sql = "INSERT INTO loai_hang (ma_loai, ten_loai) VALUES (NULL, '$ten_loai')";
         pdo_execute($sql);
         $thong_Bao = " đã thêm thành công hàng có tên : $ten_loai vào danh mục";
-        echo $thong_Bao ? "<h1 class='text-green-400'>$thong_Bao</h1>" : "";
+        echo  "<h1 class='text-green-400'>$thong_Bao</h1>" ;
     }
 }
 
