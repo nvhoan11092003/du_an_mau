@@ -2,24 +2,24 @@
 <div class="">
     <h1 class="text-3xl">Thêm Mới Danh Mục</h1>
     <form action="../admin/index.php?act=adddm" method="post">
-        <h1>Tên Loại Hàng</h1>
-        <input type="text" name="loai_hang">
+        <h1 class="my-3 text-xl">Tên Loại Hàng</h1>
+        <input type="text" name="ten_loai" class="w-[250px] h-[40px] border-2 focus:border-blue-700 border-black pl-2 rounded-md m-1">
         <!-- Nơi báo lỗi -->
         <?php
         // Kiểm Tra Tên Không được Để Trống
-        if (isset($_POST["loai_hang"])) {
+        if (isset($_POST["ten_loai"])) {
             $error = true;
-            $ten_loai = $_POST["loai_hang"];
+            $ten_loai = $_POST["ten_loai"];
             if ($ten_loai == "") {
-                echo '<h1 class="text-red-600">Trường Này Không được để Trống</h1>'; 
-                $error = false;          
+                echo '<h1 class="text-red-600">Trường Này Không được để Trống</h1>';
+                $error = false;
             }
         }
-        if (isset($_POST["loai_hang"])) {
-            $ten_loai = $_POST["loai_hang"];
+        if (isset($_POST["ten_loai"])) {
+            $ten_loai = $_POST["ten_loai"];
             // kiểm tra tên loại hàng không được để trống
             $sql = "SELECT * FROM loai_hang";
-            $ds_loai_hang = pdo_query($sql);    
+            $ds_loai_hang = pdo_query($sql);
             foreach ($ds_loai_hang as $key => $value) {
                 if ($ten_loai === $value["ten_loai"]) {
                     echo '<h1 class="text-red-600">Loại Hàng Này Đã Tồn Tại </h1>';
@@ -28,10 +28,10 @@
             }
         }
         ?>
-        <div class="">
-            <input type="reset" value="Nhập Lại">
-            <input type="submit" value="Thêm Mới" name="them_moi" class="hover:text-red-300 active:text-black">
-            <button>ádsa</button>
+        <div class="mt-3">
+            <input type="reset" value="Nhập Lại" class="w-[120px] h-[35px] text-white bg-red-500 hover:bg-red-700 active:bg-blue-500 border-gray-600 text-lg border rounded-md m-1 ">
+            <input type="submit" value="Thêm Mới" name="them_moi" class="w-[120px] h-[35px] text-white  bg-blue-500 hover:bg-blue-700 active:bg-red-500 border-gray-600 text-lg border rounded-md m-1 ">
+            <a href="../admin/index.php?act=listdm"><input type="button" value="danh sách"      class="w-[120px] h-[35px] text-white bg-yellow-500 hover:bg-yellow-700 active:bg-blue-500 border-gray-600 text-lg border rounded-md m-1 "></a>
         </div>
     </form>
 
@@ -42,7 +42,7 @@ if (isset($error)) {
         $sql = "INSERT INTO loai_hang (ma_loai, ten_loai) VALUES (NULL, '$ten_loai')";
         pdo_execute($sql);
         $thong_Bao = " đã thêm thành công hàng có tên : $ten_loai vào danh mục";
-        echo  "<h1 class='text-green-400'>$thong_Bao</h1>" ;
+        echo  "<h1 class='text-green-400'>$thong_Bao</h1>";
     }
 }
 

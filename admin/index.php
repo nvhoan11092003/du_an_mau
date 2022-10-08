@@ -8,14 +8,17 @@ if (isset($_GET['act'])) {
         case 'adddm':
             include "danhmuc/add.php";
             break;
+        case 'listdm':  
+            include "danhmuc/list.php";
+            break;
         case 'addhh':
             include "hanghoa/add.php";
             break;
-        case '':
-            include "";
+        case 'xoadm':
+            include "danhmuc/xoa.php";
             break;
-        case '':
-            include "";
+        case 'suadm':
+            include "danhmuc/sua.php";
             break;
         case '':
             include "";
