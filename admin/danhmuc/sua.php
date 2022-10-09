@@ -39,9 +39,9 @@ if (isset($_POST['cap_nhat'])) {
     <form action="../admin/index.php?act=suadm&id=<?= $loai_hang['ma_loai'] ?>" method="post">
         <h1 class="my-3 text-xl">MÃ LOẠI</h1>
         <input type="hidden" name="ma_loai" value="<?= $loai_hang['ma_loai'] ?>" >
-        <input type="text" value="<?= $loai_hang['ma_loai'] ?>" class="w-[250px] h-[40px] border bg-gray-300  pl-2 rounded-md m-1" disabled>
+        <input type="text" value="<?= $loai_hang['ma_loai'] ?>" class="max-w-[500px] w-[500px] h-[40px] border bg-gray-300  pl-2 rounded-md m-1" disabled>
         <h1 class="my-3 text-xl">Tên Loại Hàng</h1>
-        <input type="text" name="ten_loai" value="<?= $loai_hang['ten_loai'] ?>" class="w-[250px] h-[40px] border-2 focus:border-blue-700 border-black pl-2 rounded-md m-1">
+        <input type="text" name="ten_loai" value="<?= $loai_hang['ten_loai'] ?>" class="max-w-[500px] w-[500px] h-[40px] border-2 focus:border-blue-700 border-black pl-2 rounded-md m-1">
         <!-- Nơi Báo Lỗi -->
         <h1 class="text-red-600"><?= isset($error) ? $error : ""; ?></h1>
         <!-- Nơi Báo thành Công -->
