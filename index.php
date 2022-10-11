@@ -16,11 +16,11 @@
             case 'hd':
                 include "view/hoidap.php";
                 break;
-            case '':
-                include "hanghoa/";
+            case 'sanphamct':
+                include "view/sanphamct.php";
                 break;
-            case '':
-                include "";
+            case 'sanpham':
+                include "view/sanpham.php";
                 break;
     
             default:

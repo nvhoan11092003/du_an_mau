@@ -65,7 +65,7 @@ $listhh = pdo_query($sql);
 <div class="flex justify-start items-center mb-24">
     <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
         <?php foreach ($listhh as $key => $value) : ?>
-            <a href="">
+            <a href="index.php?act=sanphamct&id=<?= $value['ma_hh'] ?>">
                 <div class="flex flex-col items-center justify-start border h-[350px] p-3">
                     <img src="admin/<?= $value['hinh_anh'] ?>" alt="không có ảnh demo" class="max-h-[300px]">
                     <h1 class="text-xl text-blue-400"><?= $value['ten_hh'] ?></h1>
@@ -85,7 +85,7 @@ $listhh = pdo_query($sql);
         <ul class="border ">
         <li class="text-xl border block p-4 bg-slate-300">Danh Mục</li>
         <?php foreach ($loai_hang as $key => $value) : ?>
-            <li><a href="" class="p-4 px-4 border block  hover:bg-slate-200"><?= $value['ten_loai'] ?></a></li>
+            <li><a href="index.php?act=sanpham&iddm=<?= $value['ma_loai'] ?>" class="p-4 px-4 border block  hover:bg-slate-200"><?= $value['ten_loai'] ?></a></li>
         <?php endforeach ?>
         </ul>
 
@@ -93,7 +93,7 @@ $listhh = pdo_query($sql);
         <ul class="border mt-10  ">
         <li class="text-xl border block p-3 bg-slate-300">top 10 sản phẩm được yêu thích</li>
         <?php foreach ($top10sp as $key => $value) : ?>
-            <li class=""><a href="" class="p-4 px-4 h-[90px] border flex items-center gap-x-5  hover:bg-slate-200"> <img src="admin/<?= $value['hinh_anh'] ?>" alt="" class="h-full w-[70px]">     <?= $value['ten_hh'] ?></a></li>
+            <li class=""><a href="index.php?act=sanphamct&iddm=<?= $value['ma_loai'] ?>" class="p-4 px-4 h-[90px] border flex items-center gap-x-5  hover:bg-slate-200"> <img src="admin/<?= $value['hinh_anh'] ?>" alt="" class="h-full w-[70px]">     <?= $value['ten_hh'] ?></a></li>
         <?php endforeach ?>
         </ul>
     </div>
