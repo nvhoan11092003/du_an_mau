@@ -1,4 +1,6 @@
 <?php
+session_start();
+var_dump($_SESSION['user']);
 require_once "db.php";
 include "view/header.php";
 if (isset($_GET['act'])) {
@@ -24,6 +26,12 @@ if (isset($_GET['act'])) {
             break;
         case 'dangkytk':
             include "taikhoan/add.php";
+            break;
+        case 'dangnhap':
+            include "taikhoan/dangnhap.php";
+            break;
+        case 'suatk':
+            include "taikhoan/sua.php";
             break;
         case '':
 

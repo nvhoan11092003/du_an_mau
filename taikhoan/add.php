@@ -32,14 +32,17 @@ if (isset($_POST['submit'])) {
     }
     if($thu_Thi){
         $new_password = password_hash($mat_khau, PASSWORD_BCRYPT);
-        $hinh = $_FILES['hinh_anh']['name'];
-        $target_dir = "taikhoan/images/";
-        $target_file = $target_dir . uniqid() . '_' . $hinh;
-        // move_uploaded_file(nội dung file, đường dẫn tới ảnh được lưu);
-        move_uploaded_file( $_FILES['hinh_anh']['tmp_name'], $target_file);
+        $target_file = "";
+        if ($_FILES['hinh_anh']['name'] != "") {
+            $hinh = $_FILES['hinh_anh']['name'];
+            $target_dir = "taikhoan/images/";
+            $target_file = $target_dir . uniqid() . '_' . $hinh;
+            // move_uploaded_file(nội dung file, đường dẫn tới ảnh được lưu);
+            move_uploaded_file( $_FILES['hinh_anh']['tmp_name'], $target_file);
+        }
         $sql ="INSERT INTO khach_hang(ma_kh, mat_khau, ho_ten, kich_hoat, hinh_anh, email, vai_tro) VALUES ('','$new_password','$ho_ten','[value-4]','$target_file','$email','')";
         pdo_execute($sql);
-        $thong_Bao= "Đã Đăng ký thành công tài khoản";
+        $thong_Bao= "Đã Đăng ký Thành Công Tài Khoản";
     }
 }
 ?>
