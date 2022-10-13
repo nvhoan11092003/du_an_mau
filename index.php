@@ -33,8 +33,8 @@ if (isset($_GET['act'])) {
         case 'suatk':
             include "taikhoan/sua.php";
             break;
-        case '':
-
+        case 'quenmk':
+            include "taikhoan/quenmk.php";
             break;
         case '':
 

@@ -52,3 +52,4 @@ function pdo_query_one($sql)
     }
 
 }
+

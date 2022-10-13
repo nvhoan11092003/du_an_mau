@@ -11,7 +11,7 @@
         $hinh = $_FILES['hinh_anh']['name'];
         $target_dir = "images/";
         $target_file = $target_dir . uniqid() . '_' . $hinh;
-        $today = date("Y/m/d"); 
+        $today = date("d/m/y"); 
         // move_uploaded_file(nội dung file, đường dẫn tới ảnh được lưu);
         move_uploaded_file( $_FILES['hinh_anh']['tmp_name'], $target_file);
         $sql =" INSERT INTO hang_hoa(ma_hh, ten_hh, don_gia, giam_gia, hinh_anh, ngay_nhap, mo_ta, dac_biet, so_luot_xem, ma_loai) VALUES ('','$ten_hh','$don_gia','$giam_gia','$target_file','$today','$mo_Ta','[value-8]','[value-9]','$iddm')";

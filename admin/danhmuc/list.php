@@ -3,9 +3,9 @@
     $listdm = pdo_query($sql);   
 ?>
 <h1 class="text-3xl my-3"> Danh Sách Loại Hàng </h1>
-<table class="text-lg table-fixed border-2 border-separate border-slate-600 w-full">
+<table class="text-lg table-fixed border-2 border-slate-500 w-full">
     <thead>
-        <tr>
+        <tr class=" border-b-2 border-slate-500">
             <th></th>
             <th>ID</th>
             <th>NAME</th>
@@ -14,7 +14,7 @@
     </thead>
     <tbody>
         <?php foreach ($listdm as $key => $value): ?>
-            <tr>
+            <tr class="border  border-b-2 border-slate-500 ">
                 <td><input type="checkbox" name="" id=""></td>
                 <td><?=$value['ma_loai']?></td>
                 <td><?=$value['ten_loai']?></td>

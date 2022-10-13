@@ -22,6 +22,11 @@ $top10sp = pdo_query($sql);
             </div>
             <ul class="text-blue-500">
             <li><a class="hover:text-red-500" href="index.php?act=suatk">Thay Đổi Thông Tin</a></li>
+            <?php 
+                if ($vai_tro==1) {
+                    echo '<li><a class="hover:text-red-500" href="admin"> Truy cập trang admin</a></li>';
+                }
+            ?>
             <li><a class="hover:text-red-500" href="taikhoan/dangxuat.php"> Đăng Xuất</a></li>
             </ul>
         </div>
@@ -37,7 +42,7 @@ $top10sp = pdo_query($sql);
                 <input name="mk" type="text" class="border w-full h-[40px] p-3 my-2" placeholder="Password">
                 <input type="checkbox" id="quen">
                 <label for="quen">Ghi nhớ tài khoản</label>
-                <a href="" class="float-right text-blue-500">Quên mật khẩu</a>
+                <a href="index.php?act=quenmk" class="float-right text-blue-500">Quên mật khẩu</a>
                 <input type="submit" name="dang_nhap" value="Đăng Nhập" class="w-full bg-red-500 hover:bg-blue-400   delay-150   p-2 text-white mt-4">
                 <a href="index.php?act=dangkytk" class="text-blue-600 float-right mb-7 mt-2"> Tạo tài khoản mới</a>
             </form>

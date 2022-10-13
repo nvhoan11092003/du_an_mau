@@ -1,4 +1,10 @@
 <?php
+session_start();
+if (isset($_SESSION['user']) && $_SESSION['user']['vai_tro'] == 1) {
+} else {
+    header("location:../index.php");
+}
+
 // kết nối với file connect
 require_once "../db.php";
 include "header.php";
@@ -23,11 +29,11 @@ if (isset($_GET['act'])) {
         case 'suahh':
             include "hanghoa/sua.php";
             break;
-        case '':
-            include "hanghoa/";
+        case 'listkh':
+            include "../taikhoan/listkh.php";
             break;
-        case '':
-            include "";
+        case 'dsbl':
+            include "binhluan/list.php";
             break;
 
         default:

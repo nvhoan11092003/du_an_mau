@@ -30,9 +30,9 @@
     
     <input type="submit" value="Tìm Kiếm" name="tim" class="max-w-[400px]  px-2 h-[35px] text-white  bg-blue-500 hover:bg-blue-700 active:bg-red-500 border-gray-600 text-lg border rounded-md m-1 ">
     </form>
-    <table  class="text-lg table-fixed border-2 border-separate border-slate-600 w-full">
+    <table  class="text-lg table-auto border-2  border-slate-600 w-full">
     <thead>
-        <tr>
+        <tr class=" border-b-2 border-slate-600">
             <th></th>
             <th>TÊN SẢN PHẨM</th>
             <th>ĐƠN GIÁ</th>
@@ -48,13 +48,13 @@
     </thead>
     <tbody>
         <?php foreach ($listhh as $key => $value): ?>
-            <tr>
+            <tr class="h-[200px] border-b-2 border-slate-600">
                 <td><input type="checkbox" name="" id=""></td>
                 <td><?=$value['ten_hh']?></td>
                 <td><?=$value['don_gia']?></td>
                 <td><?=$value['giam_gia']?></td>
                 <td><img src="<?=$value['hinh_anh']?>" alt="chưa có ảnh sp" class="max-w-[100px] max-h-[150px]"></td>
-                <td><?=$value['mo_ta']?></td>
+                <td class="overflow-clip flex items-center justify-center max-w-[400px] h-[200px]"><?=$value['mo_ta']?></td>
                 <td><?=$value['so_luot_xem']?></td>
                 <td><?=$value['ten_loai']?></td>
                 <td><?=$value['ngay_nhap']?></td>

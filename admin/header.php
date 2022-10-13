@@ -18,7 +18,7 @@
                 <li><a href="index.php" class="p-4 block hover:text-red-600 hover:underline">Trang Chủ</a></li>
                 <li><a href="index.php?act=adddm" class="p-4 block hover:text-red-600 hover:underline">Danh Mục</a></li>
                 <li><a href="index.php?act=addhh" class="p-4 block hover:text-red-600 hover:underline">Hàng Hóa</a></li>
-                <li><a href="index.php?act=addkh" class="p-4 block hover:text-red-600 hover:underline">Khách Hàng </a></li>
+                <li><a href="index.php?act=listkh" class="p-4 block hover:text-red-600 hover:underline">Khách Hàng </a></li>
                 <li><a href="index.php?act=dsbl" class="p-4 block hover:text-red-600 hover:underline">Bình Luận</a></li>
                 <li><a href="index.php?act=thongke" class="p-4 block hover:text-red-600 hover:underline">Thống KÊ</a></li>
             </ul>
