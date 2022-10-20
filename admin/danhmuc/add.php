@@ -18,8 +18,7 @@
         if (isset($_POST["ten_loai"])) {
             $ten_loai = $_POST["ten_loai"];
             // kiểm tra tên loại hàng không được để trống
-            $sql = "SELECT * FROM loai_hang";
-            $ds_loai_hang = pdo_query($sql);
+            $ds_loai_hang = loadall_loaihang();
             foreach ($ds_loai_hang as $key => $value) {
                 if ($ten_loai === $value["ten_loai"]) {
                     echo '<h1 class="text-red-600">Loại Hàng Này Đã Tồn Tại </h1>';
@@ -39,9 +38,8 @@
 <?php
 if (isset($error)) {
     if ($error) {
-        $sql = "INSERT INTO loai_hang (ma_loai, ten_loai) VALUES (NULL, '$ten_loai')";
-        pdo_execute($sql);
-        $thong_Bao = " đã thêm thành công hàng có tên : $ten_loai vào danh mục";
+        insert_loaihang($ten_loai);
+        $thong_Bao = " đã thêm thành công Loại hàng có tên : $ten_loai vào danh mục";
         echo  "<h1 class='text-green-400'>$thong_Bao</h1>";
     }
 }

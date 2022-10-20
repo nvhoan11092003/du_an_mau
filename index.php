@@ -1,7 +1,9 @@
 <?php
 session_start();
-var_dump($_SESSION['user']);
+// var_dump($_SESSION['user']);
 require_once "db.php";
+// kết nối model 
+include "model/sanpham.php";
 include "view/header.php";
 if (isset($_GET['act'])) {
     $act = $_GET['act'];

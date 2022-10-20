@@ -54,6 +54,10 @@ $top10sp = pdo_query($sql);
         <?php foreach ($loai_hang as $key => $value) : ?>
             <li><a href="index.php?act=sanpham&iddm=<?= $value['ma_loai'] ?>" class="p-4 px-4 border block  hover:bg-slate-200"><?= $value['ten_loai'] ?></a></li>
         <?php endforeach ?>
+        <form class="w-full px-2 py-4" action="index.php?act=sanpham" method="POST">
+            <input name="kyword" class="w-full border border-black h-10 p-2  " placeholder="Từ Khóa" type="text">
+            <input type="submit" name="timkiem"  value="Tìm Kiếm"  class="max-w-[400px]  px-2 h-[35px] text-white  bg-blue-500 hover:bg-blue-700 active:bg-red-500 border-gray-600 text-lg border rounded-md m-1 ">
+        </form>
     </ul>
 
     <!-- top 10 -->

@@ -4,7 +4,10 @@ if (isset($_SESSION['user']) && $_SESSION['user']['vai_tro'] == 1) {
 } else {
     header("location:../index.php");
 }
-
+// kết nối model
+include "../model/danhmuc.php";
+include "../model/sanpham.php";
+include "../model/binhluan.php";
 // kết nối với file connect
 require_once "../db.php";
 include "header.php";

@@ -1,7 +1,7 @@
 <?php
     require_once('../../db.php');
+    include('../../model/binhluan.php');
     $id = $_GET['id'];
-    $sql = "DELETE FROM binh_luan WHERE ma_bl = $id";
-    pdo_execute($sql);
+    delete_binhluan($id);
     header("location:" . $_SERVER["HTTP_REFERER"]);
 ?>

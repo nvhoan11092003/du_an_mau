@@ -1,8 +1,14 @@
 <?php
-$iddm = $_GET['iddm'];
-$sql = "SELECT * FROM hang_hoa where ma_loai = '$iddm'";
-$listhh = pdo_query($sql);
-
+$kyword = "";
+$iddm = -1;
+if (isset($_GET['iddm'])) {
+    $iddm = $_GET['iddm'];
+}
+if (isset($_POST['timkiem'])) {
+    $kyword = $_POST['kyword'];
+}
+// tương tự ở admin sản phẩm
+$listhh = loadall_sanpham($kyword,$iddm);
 ?>
 <div class="flex h-96 mb-10 ">
     <!-- sản phẩm -->

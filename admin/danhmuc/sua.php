@@ -2,8 +2,7 @@
 if (isset($_GET['id'])) {
     $error = "";
     $id = $_GET['id'];
-    $sql = "SELECT * FROM loai_hang WHERE ma_loai = '$id' ";
-    $loai_hang = pdo_query_one($sql);
+    $loai_hang = loadone_loaihang($id);
 }
 if (isset($_POST['cap_nhat'])) {
     $ten_loai = $_POST['ten_loai'];
@@ -12,10 +11,8 @@ if (isset($_POST['cap_nhat'])) {
     if ($ten_loai == "") {
         $error = "Trường Này Không được để Trống";
     }
-
     // kiểm tra tên loại hàng không được để trống
-    $sql = "SELECT * FROM loai_hang";
-    $ds_loai_hang = pdo_query($sql);
+    $ds_loai_hang = loadall_loaihang();
     foreach ($ds_loai_hang as $key => $value) {
         if ($ten_loai === $value["ten_loai"]&& $id != $value["ma_loai"]  ) {
             $error ="Loại Hàng Này Đã Tồn Tại";
@@ -23,8 +20,7 @@ if (isset($_POST['cap_nhat'])) {
     }
     var_dump($error);
     if (!$error) {
-        $sql = "UPDATE loai_hang SET ten_loai='$ten_loai' WHERE ma_loai = '$id'";
-        pdo_execute($sql);
+        update_loaihang($ten_loai,$id);
         $thong_Bao = " đã cập nhật thành công thành loại hàng có tên : $ten_loai vào danh mục";
         header('location:index.php?act=listdm');
     }

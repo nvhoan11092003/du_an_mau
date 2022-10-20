@@ -7,25 +7,12 @@
         $don_gia = $_POST['don_gia'] ;
         $giam_gia = $_POST['giam_gia'] ;
         $mo_Ta = $_POST['mo_ta'] ;
-        if ($_FILES['hinh_anh']['name']!= ""){
-            $hinh = $_FILES['hinh_anh']['name'];
-            $target_dir = "images/";
-            $target_file = $target_dir . uniqid() . '_' . $hinh;
-             // move_uploaded_file(nội dung file, đường dẫn tới ảnh được lưu);
-        move_uploaded_file( $_FILES['hinh_anh']['tmp_name'], $target_file);
-        
-        $sql =" UPDATE hang_hoa SET ten_hh='$ten_hh',don_gia='$don_gia',giam_gia='$giam_gia',hinh_anh='$target_file',mo_ta='$mo_Ta',ma_loai='$iddm' WHERE ma_hh = '$id'";
-        }
-        else {
-            $sql =" UPDATE hang_hoa SET ten_hh='$ten_hh',don_gia='$don_gia',giam_gia='$giam_gia',mo_ta='$mo_Ta',ma_loai='$iddm' WHERE ma_hh = '$id'";
-        }
-        pdo_execute($sql);
+        $hinh = $_FILES['hinh_anh']['name'];
+        update_sanpham($id,$ten_hh,$don_gia,$giam_gia,$hinh,$mo_Ta,$iddm);
         $thong_Bao= "Đã sửa Thành Công Sản phẩm";
     }
-    $sql = "SELECT * FROM hang_hoa WHERE ma_hh = '$id'";
-    $hangHoa = pdo_query_one($sql);
-    $sql = "SELECT * FROM loai_hang";
-    $listdm = pdo_query($sql);
+    $hangHoa = loadone_sanpham($id);
+    $listdm = loadall_loaihang();
 ?>
 
 
@@ -52,7 +39,7 @@
         <input type="text" name="giam_gia" value="<?=$hangHoa['giam_gia'] ?>" class="max-w-[500px] w-[500px] h-[40px] border focus:border-blue-700 border-black pl-2 rounded-md m-1">
         <h1 class="my-2 text-xl ">Ảnh Sản Phẩm</h1>
         <input type="file" name="hinh_anh" >
-        <img src="<?=$hangHoa['hinh_anh'] ?>" alt="chưa có">
+        <img class="max-h-[350px] max-w-[300px]" src="<?=$hangHoa['hinh_anh'] ?>" alt="chưa có">
         <h1 class="my-2 text-xl">Mô tả</h1>
         <textarea name="mo_ta" id="" cols="60" rows="10" class="border border-black rounded-lg"><?=$hangHoa['mo_ta'] ?></textarea>
         <div class="mt-3">

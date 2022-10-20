@@ -1,21 +1,11 @@
 <?php 
+    $listhh =loadall_sanpham();
     if (isset($_POST['tim'])) {
         $key_word = $_POST['keyword'];
         $id_danhmuc = $_POST['iddm'];
-        $sql = "SELECT * FROM hang_hoa inner join loai_hang WHERE loai_hang.ma_loai = hang_hoa.ma_loai";
-        if ($key_word!="") {
-            $sql .= " and ten_hh like '%$key_word%' ";
-        }
-        if($id_danhmuc>0){
-            $sql .=  " and hang_hoa.ma_loai = $id_danhmuc ";
-        }
-    }else{
-        $sql = "SELECT * FROM hang_hoa inner join loai_hang WHERE loai_hang.ma_loai = hang_hoa.ma_loai";
-
-    }
-    $listhh = pdo_query($sql);   
-    $sql = "SELECT * FROM loai_hang";
-    $listdm = pdo_query($sql);
+        $listhh = loadall_sanpham($key_word,$id_danhmuc);  
+    };
+    $listdm = loadall_loaihang();
 ?>
 
     <h1 class="text-3xl my-3"> Danh Sách Hàng Hóa </h1>

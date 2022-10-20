@@ -1,11 +1,8 @@
 <?php
 $idsp = $_GET['id'];
-$sql = "SELECT * FROM hang_hoa where ma_hh = '$idsp'";
-$hang_hoa = pdo_query_one($sql);
+$hang_hoa = loadone_sanpham($idsp);
 $idcungloai =  $hang_hoa['ma_loai'];
-$sql = "SELECT * FROM hang_hoa where ma_loai = '$idcungloai' and   '" . $hang_hoa['ma_hh'] . "'  <> ma_hh ";
-$category = pdo_query($sql);
-
+$categories = loadall_sanpham_categories($hang_hoa['ma_hh'],$idcungloai);
 ?>
 <div class="flex h-96 mb-10 ">
     <!-- sản phẩm -->
@@ -36,13 +33,13 @@ $category = pdo_query($sql);
         <!-- sản phẩm cùng loại -->
         <h1 class="m-10 text-2xl ">Sản Phẩm Cùng Loại</h1>
         <div class="col-span-2 flex gap-x-10">
-            <?php foreach ($category as $key => $value) : ?>
+            <?php foreach ($categories  as $key => $value) : ?>
                 <a class=" block w-3/12      " href="index.php?act=sanphamct&id=<?= $value['ma_hh'] ?>">
                     <img class="w-auto h-[150px]" src="admin/<?= $value['hinh_anh'] ?>" alt="">
                     <?= $value['ten_hh'] ?>
                 </a>
             <?php endforeach ?>
-            <?php if (!$category) {
+            <?php if (!$categories) {
                 echo '<h1 class="text-xl  ">không có sản phẩm cùng loại</h1>';
             } ?>
 

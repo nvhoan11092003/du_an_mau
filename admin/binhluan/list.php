@@ -1,6 +1,5 @@
 <?php 
-    $sql = "SELECT binh_luan.ma_bl,binh_luan.noi_dung,khach_hang.ho_ten,hang_hoa.ten_hh,binh_luan.ngay_bl FROM binh_luan INNER JOIN hang_hoa ON binh_luan.ma_hh = hang_hoa.ma_hh INNER JOIN khach_hang ON binh_luan.ma_kh=khach_hang.ma_kh";
-    $listbl=pdo_query($sql);
+    $listbl= loadall_binhluan();
 ?>
     <h1 class="text-3xl my-3"> Danh Sách Bình Luận</h1>
     <table  class="text-lg border-2 border-slate-600 w-full ">

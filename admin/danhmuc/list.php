@@ -1,6 +1,5 @@
 <?php 
-    $sql = "SELECT * FROM loai_hang";
-    $listdm = pdo_query($sql);   
+    $listdm = loadall_loaihang();
 ?>
 <h1 class="text-3xl my-3"> Danh Sách Loại Hàng </h1>
 <table class="text-lg table-fixed border-2 border-slate-500 w-full">

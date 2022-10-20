@@ -1,6 +1,7 @@
 <?php
 session_start();
 require_once "../../db.php";
+include "../../model/binhluan.php";
 $idpro = $_REQUEST['idpro'];
 if (isset($_SESSION['user'])) {
     $iduser = $_SESSION['user']['ma_kh'];
@@ -10,12 +11,10 @@ $ngaybl = date('s:i:h d/m/y');
 if (isset($_POST['submit'])) {
     $idpro = $_POST['idpro'];
     $noidung = $_POST['noidung'];
-    $sql = "INSERT INTO binh_luan(ma_bl, noi_dung, ma_hh, ma_kh, ngay_bl) VALUES ('','$noidung','$idpro','$iduser','$ngaybl')";
-    pdo_execute($sql);
+    insert_binhluan($noidung,$idpro,$iduser,$ngaybl);
     header("location:" . $_SERVER["HTTP_REFERER"]);
 }
-$sql = "SELECT * FROM binh_luan inner join khach_hang on binh_luan.ma_kh=khach_hang.ma_kh WHERE ma_hh ='$idpro' order by binh_luan.ngay_bl  ASC limit 0,9";
-$listbl = pdo_query($sql);
+$listbl = load10_binhluan($idpro)
 ?>
 
 
