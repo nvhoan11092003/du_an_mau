@@ -4,6 +4,9 @@ session_start();
 require_once "db.php";
 // kết nối model 
 include "model/sanpham.php";
+include "model/khachhang.php";
+include "model/danhmuc.php";
+
 include "view/header.php";
 if (isset($_GET['act'])) {
     $act = $_GET['act'];

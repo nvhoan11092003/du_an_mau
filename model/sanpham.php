@@ -12,6 +12,17 @@ function loadall_sanpham($kyw="",$id=-1){
     return $ds_hang_hoa;
 };
 
+function load9_sanpham(){
+    $sql = "SELECT * FROM hang_hoa order by ma_hh desc limit 0,9";
+    $listhh = pdo_query($sql);
+    return $listhh;
+}
+function loadtop10_sanpham()
+{
+    $sql = "SELECT * FROM hang_hoa order by so_luot_xem desc limit 0,10 "; 
+    $listhh = pdo_query($sql);
+    return $listhh;
+}
 function loadone_sanpham($id)
 {
     $sql = "SELECT * FROM hang_hoa  WHERE ma_hh = $id";

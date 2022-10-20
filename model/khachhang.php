@@ -1,45 +1,37 @@
-<?php
-function loadall_sanpham($kyw="",$id=0){
-    $sql = "SELECT * FROM hang_hoa inner join loai_hang WHERE loai_hang.ma_loai = hang_hoa.ma_loai";
-        if ($kyw!="") {
-            $sql .= " and ten_hh like '%$kyw%' ";
-        }
-        if($id>0){
-            $sql .=  " and hang_hoa.ma_loai = $id ";
-        }
-        $sql.=" order by ma_hh desc";
-    $ds_hang_hoa = pdo_query($sql);
-    return $ds_hang_hoa;
-};
-
-function insert_sanpham($ten_hh,$don_gia,$giam_gia,$target_file,$today,$mo_Ta,$iddm){
-    $sql =" INSERT INTO hang_hoa(ma_hh, ten_hh, don_gia, giam_gia, hinh_anh, ngay_nhap, mo_ta, dac_biet, so_luot_xem, ma_loai) VALUES ('','$ten_hh','$don_gia','$giam_gia','$target_file','$today','$mo_Ta','[value-8]','[value-9]','$iddm')";
-    pdo_execute($sql);
-}
-
-function loadone_sanpham($id){
-    $sql = "SELECT * FROM hang_hoa WHERE ma_hh = '$id' ";
-    $hang_hoa = pdo_query_one($sql);
-    return $hang_hoa;
-}
-
-function update_sanpham($id,$ten_hh,$don_gia,$giam_gia,$hinh,$mo_Ta,$iddm){
-    if($hinh!=""){
-        $target_dir = "images/";
-        $target_file = $target_dir . uniqid() . '_' . $hinh;
-        // move_uploaded_file(nội dung file, đường dẫn tới ảnh được lưu);
-        move_uploaded_file( $_FILES['hinh_anh']['tmp_name'], $target_file);
-        $sql =" UPDATE hang_hoa SET ten_hh='$ten_hh',don_gia='$don_gia',giam_gia='$giam_gia',hinh_anh='$target_file',mo_ta='$mo_Ta',ma_loai='$iddm' WHERE ma_hh = '$id'";
+<?php 
+    function loadall_khachhang()
+    {
+        $sql = "SELECT * FROM khach_hang";
+        $listkh = pdo_query($sql);
+        return $listkh;
     }
-    else{
-        $sql =" UPDATE hang_hoa SET ten_hh='$ten_hh',don_gia='$don_gia',giam_gia='$giam_gia',mo_ta='$mo_Ta',ma_loai='$iddm' WHERE ma_hh = '$id'";
-    }
-    pdo_execute($sql);
-}
 
-function delete_sanpham($id)
-{
-    $sql="DELETE FROM hang_hoa WHERE ma_hh = $id";
-    pdo_execute($sql);
-}
+    function loadone_khachhang($id)
+    {
+        $sql = "SELECT * FROM khach_hang WHERE ma_kh = $id";
+        $kh = pdo_query_one($sql);
+        return $kh;
+    }
+
+
+    function insert_khachhang($new_password,$ho_ten,$target_file,$email){
+        $sql ="INSERT INTO khach_hang(ma_kh, mat_khau, ho_ten, kich_hoat, hinh_anh, email, vai_tro) VALUES ('','$new_password','$ho_ten','[value-4]','$target_file','$email','')";
+        pdo_execute($sql);
+    }
+    
+    function update_khachhang($mat_khaumoi,$ho_tenmoi,$target_file,$dia_chi,$sdt,$ma_kh){
+        $sql ="UPDATE khach_hang SET mat_khau='$mat_khaumoi',ho_ten='$ho_tenmoi',hinh_anh='$target_file',dia_chi='$dia_chi',sdt='$sdt' WHERE ma_kh = $ma_kh";
+        pdo_execute($sql);
+    }
+
+    function recover_password($idkh,$newpasword){
+        $sql = "UPDATE khach_hang SET mat_khau='$newpasword' where ma_kh = " . $idkh;
+            pdo_execute($sql);
+    }
+    function delete_khachhang($id)
+    {
+        $sql="DELETE FROM khach_hang WHERE ma_kh=$id";
+        pdo_execute($sql);
+    }
+
 ?>

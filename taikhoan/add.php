@@ -6,9 +6,8 @@ if (isset($_POST['submit'])) {
     $ho_ten = $_POST['ho_ten'];
     $thu_Thi =true;
     // check email đã tồn tại
-    $sql = "SELECT email FROM khach_hang";
-    $email_user = pdo_query($sql);
-    foreach ($email_user as $key => $value) {
+    $list_user = loadall_khachhang();
+    foreach ($list_user as $key => $value) {
         if ($email == $value["email"]) {
             $erroremail = " email này đã tồn tại";
             $thu_Thi= false;
@@ -40,8 +39,7 @@ if (isset($_POST['submit'])) {
             // move_uploaded_file(nội dung file, đường dẫn tới ảnh được lưu);
             move_uploaded_file( $_FILES['hinh_anh']['tmp_name'], $target_file);
         }
-        $sql ="INSERT INTO khach_hang(ma_kh, mat_khau, ho_ten, kich_hoat, hinh_anh, email, vai_tro) VALUES ('','$new_password','$ho_ten','[value-4]','$target_file','$email','')";
-        pdo_execute($sql);
+        insert_khachhang($new_password,$ho_ten,$target_file,$email);
         $thong_Bao= "Đã Đăng ký Thành Công Tài Khoản";
     }
 }

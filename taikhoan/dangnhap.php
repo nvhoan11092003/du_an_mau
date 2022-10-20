@@ -1,6 +1,5 @@
 <?php 
-    $sql = "SELECT * FROM khach_hang";
-    $listuser = pdo_query($sql);
+    $listuser = loadall_khachhang();
     $tk = $_POST['tk']; 
     $mk= $_POST['mk'];
     $on = false;

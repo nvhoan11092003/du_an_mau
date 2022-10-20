@@ -1,6 +1,5 @@
     <?php
-    $sql = "SELECT ho_ten,ma_kh,email FROM khach_hang";
-    $listkh = pdo_query($sql);
+    $listkh = loadall_khachhang();
     if (isset($_POST['submit'])) {   
         $ten = $_POST['ho_ten'];
         $email = $_POST['email'];
@@ -8,9 +7,7 @@
             if ($email == $value['email']&&$ten == $value['ho_ten']) {
                     $pasword = substr(sha1(time()), 0, 5);
                     $newpasword = password_hash($pasword, PASSWORD_BCRYPT);
-                    $sql = "UPDATE khach_hang SET mat_khau='$newpasword' where ma_kh = " . $value['ma_kh'];
-                    // var_dump($sql);
-                    pdo_execute($sql);
+                    recover_password($value['ma_kh'],$newpasword);
                     $thong_Bao = "Mật Khẩu Mới Của Bạn Là : $pasword "; 
             }
         }

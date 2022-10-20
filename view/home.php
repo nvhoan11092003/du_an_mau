@@ -47,8 +47,7 @@
         </div>
         <!-- sản phẩm -->
         <?php
-        $sql = "SELECT * FROM hang_hoa order by ma_hh desc limit 0,9";
-        $listhh = pdo_query($sql);
+        $listhh = load9_sanpham();
         ?>
         <div class="flex justify-start items-center mb-24">
             <div class="grid grid-cols-2 md:grid-cols-3 gap-4">

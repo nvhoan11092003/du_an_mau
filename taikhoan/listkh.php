@@ -1,6 +1,5 @@
 <?php 
-    $sql = "SELECT * FROM khach_hang";
-    $listkh=pdo_query($sql);
+    $listkh= loadall_khachhang();
 ?>
 
     <h1 class="text-3xl my-3"> Danh Sách Người Dùng</h1>

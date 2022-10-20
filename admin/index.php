@@ -8,6 +8,9 @@ if (isset($_SESSION['user']) && $_SESSION['user']['vai_tro'] == 1) {
 include "../model/danhmuc.php";
 include "../model/sanpham.php";
 include "../model/binhluan.php";
+include "../model/khachhang.php";
+
+
 // kết nối với file connect
 require_once "../db.php";
 include "header.php";

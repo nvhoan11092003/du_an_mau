@@ -3,6 +3,8 @@ extract($_SESSION['user']);
 if (isset($_POST['submit'])) {
     $mat_khaumoi = $_POST['mat_khau'];
     $ho_tenmoi  = $_POST['ho_ten'];
+    $sdt = $_POST['sdt'];
+    $dia_chi = $_POST['dia_chi'];
     $thuc_Thi =true;
     if ($mat_khaumoi == "") {
         $mat_khaumoi = $mat_khau;
@@ -22,10 +24,8 @@ if (isset($_POST['submit'])) {
             // move_uploaded_file(nội dung file, đường dẫn tới ảnh được lưu);
             move_uploaded_file( $_FILES['hinh_anh']['tmp_name'], $target_file);
         }
-        $sql ="UPDATE khach_hang SET mat_khau='$mat_khaumoi',ho_ten='$ho_tenmoi',hinh_anh='$target_file' WHERE  ma_kh = $ma_kh";
-        pdo_execute($sql);
-        $sql = "SELECT * FROM khach_hang WHERE ma_kh = $ma_kh";
-        $_SESSION['user'] = pdo_query_one($sql);
+        update_khachhang($mat_khaumoi,$ho_tenmoi,$target_file,$dia_chi,$sdt,$ma_kh);
+        $_SESSION['user'] = loadone_khachhang($ma_kh);
         extract($_SESSION['user']);
         $thong_Bao= "Đã Cập Nhật Thành Công Tài Khoản";
     }
@@ -47,6 +47,16 @@ if (isset($_POST['submit'])) {
         <div class="">
             <h2>Email</h2>
             <input class="w-[400px] border border-stone-600 bg-stone-300 p-2" type="text" value="<?= $email ?>" disabled>
+            <h1 class="flex-none"></h1>
+        </div>
+        <div class="">
+            <h2>Địa Chỉ</h2>
+            <input name="dia_chi" class="w-[400px] border border-stone-600 p-2" type="text" value="<?= $dia_chi ?>" >
+            <h1 class="flex-none"></h1>
+        </div>
+        <div class="">
+            <h2>Số Điện Thoại</h2>
+            <input name="sdt" class="w-[400px] border border-stone-600 p-2" type="text" value="<?= $sdt ?>" >
             <h1 class="flex-none"></h1>
         </div>
         <div class="">

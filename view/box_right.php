@@ -1,8 +1,6 @@
 <?php
-$sql = "SELECT * FROM loai_hang";
-$loai_hang = pdo_query($sql);
-$sql = "SELECT * FROM hang_hoa order by so_luot_xem desc limit 0,10 ";
-$top10sp = pdo_query($sql);
+$loai_hang = loadall_loaihang();
+$top10sp = loadtop10_sanpham();
 ?>
 <div class="flex-none w-4/12 ml-5">
     <?php if (isset($_SESSION['user'])) {
