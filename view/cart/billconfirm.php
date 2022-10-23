@@ -15,9 +15,7 @@ if (isset($_POST['submit']) && $_POST['submit'] != "") {
         $thanh_tien_bill += $tong_tien;
         echo $tong_tien;
     }
-    echo   $thanh_tien_bill ;
-    // $id_bill = insert_bill($ho_ten,$dia_chi,$sdt,$email,$pttt,$ngay_dat_hang,$thanh_tien_bill,$id_user);
-    $id_bill =27;
+    $id_bill = insert_bill($ho_ten,$dia_chi,$sdt,$email,$pttt,$ngay_dat_hang,$thanh_tien_bill,$id_user);
     // insert cart
     
 
@@ -31,21 +29,8 @@ if (isset($_POST['submit']) && $_POST['submit'] != "") {
 
     $bill = loadone_bill($id_bill);
     extract($bill);
-    switch ($bill_pttt) {
-        case '1':
-            $pttt = "Trả Tiền Khi nhận Hàng";
-            break;
-        case '2':
-            $pttt="Chuyên Khoản ngân hàng" ;
-            break;
-        case '3':
-            $pttt="Thanh Toán Bằng Ví momo" ;
-            break;
-        default:
-            $pttt = "Trả Tiền Khi nhận Hàng";
-            break;
-    }
- 
+    $pttt =   bill_pttt($bill_pttt);
+
     $listcart = loadone_cart($id_bill);
 }
 

@@ -21,6 +21,7 @@
                 <li><a href="index.php?act=listkh" class="p-4 block hover:text-red-600 hover:underline">Khách Hàng </a></li>
                 <li><a href="index.php?act=dsbl" class="p-4 block hover:text-red-600 hover:underline">Bình Luận</a></li>
                 <li><a href="index.php?act=thongke" class="p-4 block hover:text-red-600 hover:underline">Thống KÊ</a></li>
+                <li><a href="index.php?act=listdh" class="p-4 block hover:text-red-600 hover:underline">Danh Sách Đơn hàng</a></li>
             </ul>
         </nav>
    

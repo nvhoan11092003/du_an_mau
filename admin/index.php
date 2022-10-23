@@ -9,6 +9,7 @@ include "../model/danhmuc.php";
 include "../model/sanpham.php";
 include "../model/binhluan.php";
 include "../model/khachhang.php";
+include "../model/cart.php";
 
 
 // kết nối với file connect
@@ -41,7 +42,12 @@ if (isset($_GET['act'])) {
         case 'dsbl':
             include "binhluan/list.php";
             break;
-
+        case 'listdh':
+            include "bill/listbill.php";
+            break;
+        case 'suabill':
+            include "bill/suabill.php";
+            break;
         default:
             include "home.php";
             break;
