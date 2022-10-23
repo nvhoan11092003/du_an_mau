@@ -6,11 +6,11 @@
     <thead>
         <tr class="border-b-2 border-slate-600 ">
             <th></th>
-            <th>tên Khách Hàng</th>
-            <th>Nội Dung</th>
-            <th>Hàng Hóa Bình Luận</th>
-            <th>Ngày Bình Luận</th>
-            <th>Thao Tác</th>
+            <th  class="text-start">tên Khách Hàng</th>
+            <th >Nội Dung</th>
+            <th class="text-start">Hàng Hóa Bình Luận</th>
+            <th class="text-start">Ngày Bình Luận</th>
+            <th class="text-start">Thao Tác</th>
         </tr>
     </thead>
     <tbody>

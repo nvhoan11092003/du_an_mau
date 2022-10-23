@@ -53,7 +53,7 @@
             <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
                 <?php foreach ($listhh as $key => $value) : ?>
                     <a class="relative" href="index.php?act=sanphamct&id=<?= $value['ma_hh'] ?>">
-                        <div class="flex flex-col items-center justify-start border h-[350px] p-3 pb-[50px]">
+                        <div class="flex flex-col items-center justify-start border h-[400px] p-3 pb-[50px]">
                             <img src="admin/<?= $value['hinh_anh'] ?>" alt="không có ảnh demo" class="max-h-[300px]">
                             <div class="absolute bottom-0">
                                 <h1 class="text-xl text-blue-400"><?= $value['ten_hh'] ?></h1>

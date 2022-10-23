@@ -19,6 +19,21 @@ function pdo_execute($sql)
         throw $e;
     }
 }
+function pdo_execute_return_lastinsertid($sql)
+{
+    $connect = new PDO(
+        'mysql:host=127.0.0.1;dbname=duanmau',
+        'root',
+        ''
+    );
+    try {
+        $statement = $connect->prepare($sql);
+        $statement->execute();
+        return $connect -> lastInsertId(); 
+    } catch (PDOException $e) {
+        throw $e;
+    }
+}
 function pdo_query($sql)
 {
     $connect = new PDO(

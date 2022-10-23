@@ -24,16 +24,16 @@
     <thead>
         <tr class=" border-b-2 border-slate-600">
             <th></th>
-            <th>TÊN SẢN PHẨM</th>
-            <th>ĐƠN GIÁ</th>
-            <th>GIẢM GIÁ</th>
-            <th>ẢNH SẢN PHẨM</th>
-            <th>MÔ TẢ</th>
-            <th>LƯỢT XEM</th>
-            <th>TÊN LOẠI</th>
-            <th>NGÀY NHẬP</th>
-            <th>ĐẶC BIỆT</th>
-            <th>thao tác</th>
+            <th class="text-start">TÊN SẢN PHẨM</th>
+            <th class="text-start">ĐƠN GIÁ</th>
+            <th class="text-start">GIẢM GIÁ</th>
+            <th class="text-start">ẢNH SẢN PHẨM</th>
+            <th >MÔ TẢ</th>
+            <th class="text-start">LƯỢT XEM</th>
+            <th class="text-start">TÊN LOẠI</th>
+            <th class="text-start">NGÀY NHẬP</th>
+            <th class="text-start">ĐẶC BIỆT</th>
+            <th class="text-start">thao tác</th>
         </tr>
     </thead>
     <tbody>

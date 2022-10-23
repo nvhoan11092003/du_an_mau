@@ -2,20 +2,20 @@
 $loai_hang = loadall_loaihang();
 $top10sp = loadtop10_sanpham();
 ?>
-<div class="flex-none w-4/12 ml-5">
+<div class="flex-none w-3/12 ml-4 ">
     <?php if (isset($_SESSION['user'])) {
         extract($_SESSION['user']);
     ?>
         <!-- sau khi đăng nhập thành công -->
         <div class="h-96 border mb-[50px] p-4">
             <h1 class="text-center text-2xl mb-2">Thông tin tài khoản</h1>
-            <div class=" gap-4 mb-5 flex justify-start items-start">
+            <div class="flex overflow-hidden mb-5">
                 <!-- ảnh đại diện -->
                 <img class="h-[150px] max-w-[200px]" src=" <?= ($hinh_anh!="")?  $hinh_anh : "taikhoan/images/avt_base.jpg" ?>" alt="">
                 <!-- thông tin -->
-                <div class="">
+                <div class="w-full">
                     <h1 class="">Tên :<?= $ho_ten ?></h1>
-                    <h1 class=""><?= $email ?></h1>
+                    <p class=" "><?= $email ?> </p>
                 </div>
             </div>
             <ul class="text-blue-500">
@@ -25,6 +25,8 @@ $top10sp = loadtop10_sanpham();
                     echo '<li><a class="hover:text-red-500" href="admin"> Truy cập trang admin</a></li>';
                 }
             ?>
+            <li><a href="index.php?act=viewcart" class="hover:text-red-500">Giỏ Hàng</a></li>
+            <li><a href="index.php?act=mybill" class="hover:text-red-500">Đơn Hàng</a></li>
             <li><a class="hover:text-red-500" href="taikhoan/dangxuat.php"> Đăng Xuất</a></li>
             </ul>
         </div>

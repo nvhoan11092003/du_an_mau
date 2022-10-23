@@ -1,5 +1,5 @@
 <?php 
     session_start();
-    session_unset();
-    header("location:../index.php")
+    unset($_SESSION['user']);
+    header("location:" . $_SERVER["HTTP_REFERER"]);
 ?>

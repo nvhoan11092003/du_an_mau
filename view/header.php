@@ -11,9 +11,9 @@
 <body>
     <!-- content -->
     <div class="mx-auto w-11/12">
-        <h1 class="text-5xl m-3">
-            Trang Chủ
-        </h1>
+       <a href="index.php"><h1 class="text-5xl m-3">
+            X shop
+        </h1></a>
         <!-- menu -->
         <nav class="mb-2">
             <ul class="flex bg-black text-white font-bold">

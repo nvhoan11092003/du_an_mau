@@ -6,9 +6,9 @@
     <thead>
         <tr class=" border-b-2 border-slate-500">
             <th></th>
-            <th>ID</th>
-            <th>NAME</th>
-            <th>THAO TÁC</th>
+            <th class="text-start">ID</th>
+            <th class="text-start">NAME</th>
+            <th class="text-start">THAO TÁC</th>
         </tr>
     </thead>
     <tbody>

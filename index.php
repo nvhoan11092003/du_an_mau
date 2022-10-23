@@ -6,6 +6,12 @@ require_once "db.php";
 include "model/sanpham.php";
 include "model/khachhang.php";
 include "model/danhmuc.php";
+include "model/cart.php";
+
+
+if (!isset($_SESSION['mycart'])) {
+    $_SESSION['mycart'] = [];
+}
 
 include "view/header.php";
 if (isset($_GET['act'])) {
@@ -41,9 +47,27 @@ if (isset($_GET['act'])) {
         case 'quenmk':
             include "taikhoan/quenmk.php";
             break;
-        case '':
-
+        case 'addtocart':
+            include "view/cart/add.php";
             break;
+
+        case 'viewcart':
+            include "view/cart/viewcart.php";
+            break;
+        case '':
+            include "";
+            break;
+        case 'bill':
+            include "view/cart/bill.php";
+            break;
+        case 'billconfirm':
+            include "view/cart/billconfirm.php";
+            break;
+        case 'mybill':
+            include "view/cart/mybill.php";
+            break;
+
+            
         default:
             include "view/home.php";
             break;

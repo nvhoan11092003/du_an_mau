@@ -8,11 +8,11 @@
     <thead>
         <tr class="border-b-2 border-slate-600 ">
             <th></th>
-            <th>Ảnh Đại diện</th>
-            <th>Họ Tên</th>
-            <th>Email</th>
-            <th>Mật Khẩu</th>
-            <th>thao tác</th>
+            <th  class="text-start">Ảnh Đại diện</th>
+            <th  class="text-start">Họ Tên</th>
+            <th class="text-start">Email</th>
+            <th class="text-start">Mật Khẩu</th>
+            <th class="text-start">thao tác</th>
         </tr>
     </thead>
     <tbody>

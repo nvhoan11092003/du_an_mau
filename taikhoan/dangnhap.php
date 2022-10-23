@@ -13,7 +13,7 @@
     }
 
     if($on){
-        header("location:index.php");
+        header("location:" . $_SERVER["HTTP_REFERER"]);
     }
     else{
         header('location:index.php?error=tài khoản hoặc mật khẩu không đúng');
